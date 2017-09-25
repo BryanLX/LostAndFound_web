@@ -1,5 +1,2 @@
-All Deliverable 2 files in deliverables.
-
-The video is a link to youtube where we uploaded our video
-
-	
+A description of our project is in the video below:
+https://www.youtube.com/watch?v=gp5Ag3Y-6KU
