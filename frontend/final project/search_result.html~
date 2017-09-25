@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>L&F</title>
+	<meta name="description" content="">  
+	<meta name="author" content="">
+
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+ 	<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="css/base.css">  
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/vendor.css">     
+
+   <!-- script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+
+   <!-- favicons
+	================================================== -->
+	<link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+<body id="top">
+<!-- header 
+   ================================================== -->
+   <header>
+
+      <div class="row">
+
+         <nav id="main-nav-wrap">
+            <ul class="main-navigation">
+               <li class="current"><a class="smoothscroll"  href="#intro" title="">Home</a></li>         
+            </ul>
+         </nav>
+
+         <a class="menu-toggle" href="#"><span>Menu</span></a>
+         
+      </div>      
+      
+   </header> <!-- /header -->
+   <section id="intro">
+
+      <div class="shadow-overlay"></div>
+
+      <div class="intro-content">
+         <div class="row">
+
+            <div class="col-twelve">
+
+               <h1>Validate the chosen item</h1>
+	       <form id = "question" action="/action_page.php">
+  		<fieldset>
+    			<legend>Sercurity Question:</legend>
+   			 What colour is it?:<br>
+  			  <input id = "q1" type="text" name="q1" ><br>
+   			 Where did you lost it:<br>
+   			  <input id = "q2" type="text" name="q2" ><br>
+			 What browser it is using:<br>
+   			  <input id = "q3" type="text" name="q3" ><br><br>
+ 		 </fieldset>
+			 <a href="#" onclick = "checkAnswer()" id="validate"  class="myButton">It's Mine!</a>
+            		 <a href="#" id="home" class="myButton">Home Page</a>
+	        </form> 
+
+            </div>  
+
+         </div>              
+      </div> 
+   </section>
+   <!-- Process Section
+   ================================================== -->
+   <section id="process">  
+	 <h1>Here are the result we found:</h1>
+       
+
+   </section> <!-- /process-->    
+
+   <!-- Java Script
+   ================================================== --> 
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="js/jquery-migrate-1.2.1.min.js"></script>
+   <script src="js/plugins.js"></script>
+   <script src="js/main.js"></script>
+   <script type="text/javascript">
+    document.getElementById("Signup").onclick = function () {
+        location.href = "signup.html";
+    };
+   </script>
+   <script type="text/javascript">
+    document.getElementById("Signin").onclick = function () {
+        location.href = "signin.html";
+    };
+   </script>
+    <script type="text/javascript">
+    document.getElementById("Guest").onclick = function () {
+        location.href = "guest.html";
+    };
+   </script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Result</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: #111;
+            color: #EEE;
+        }
+        * {
+            margin: 0;
+            border: 0;
+        }
+        .myButton {
+            -moz-box-shadow:inset 0px 0px 15px 3px #23395e;
+            -webkit-box-shadow:inset 0px 0px 15px 3px #23395e;
+            box-shadow:inset 0px 0px 15px 3px #23395e;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2e466e), color-stop(1, #415989));
+            background:-moz-linear-gradient(top, #2e466e 5%, #415989 100%);
+            background:-webkit-linear-gradient(top, #2e466e 5%, #415989 100%);
+            background:-o-linear-gradient(top, #2e466e 5%, #415989 100%);
+            background:-ms-linear-gradient(top, #2e466e 5%, #415989 100%);
+            background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e466e', endColorstr='#415989',GradientType=0);
+            background-color:#2e466e;
+            -moz-border-radius:17px;
+            -webkit-border-radius:17px;
+            border-radius:17px;
+            border:1px solid #1f2f47;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:15px;
+            padding:6px 13px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #263666;
+        }
+        .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #415989), color-stop(1, #2e466e));
+            background:-moz-linear-gradient(top, #415989 5%, #2e466e 100%);
+            background:-webkit-linear-gradient(top, #415989 5%, #2e466e 100%);
+            background:-o-linear-gradient(top, #415989 5%, #2e466e 100%);
+            background:-ms-linear-gradient(top, #415989 5%, #2e466e 100%);
+            background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#415989', endColorstr='#2e466e',GradientType=0);
+            background-color:#415989;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+
+        #resultPage {
+            display: grid;
+            height: 100%;
+        }
+        @media (orientation: landscape) {
+            #resultPage {
+                grid-definition-columns: 20px 1fr 10px 300px 20px;
+                grid-template-columns: 20px 1fr 10px 300px 20px;
+                grid-definition-rows: 20px 150px 10px 1fr 10px 150px 20px;
+                grid-template-rows: 20px 150px 10px 1fr 10px 150px 20px;
+            }
+            #title {
+                grid-column: 4;
+                grid-row: 2;
+            }
+            #text {
+                grid-column: 4;
+                grid-row: 4;
+            }
+            #main {
+                grid-column: 2;
+                grid-row: 2 / span 3;
+            }
+            #photos {
+                grid-column: 2 / span 3;
+                grid-row: 6;
+            }
+            #image-title {
+                line-height: 1.5em;
+                font-size: 2em;
+            }
+            #text {
+                font-size: 1em;
+                padding: 20px;
+            }
+            #description {
+                font-size: 1.5em;
+                line-height: 1.3em;
+                margin-bottom: 30px;
+            }
+            #thumbnails {
+                max-height: 150px;
+            }
+            .thumbnail {
+                max-height: 130px;
+                margin: 10px 30px 10px 30px;
+            }
+	    #question {
+  	
+   		display:inline-block;
+	    }
+        }
+        @media (orientation: portrait) {
+            #resultPage {
+                grid-definition-columns: 20px 200px 10px 1fr 20px;
+                grid-template-columns: 20px 200px 10px 1fr 20px;
+                grid-definition-rows: 20px 100px 10px 1fr 10px 100px 20px;
+                grid-template-rows: 20px 100px 10px 1fr 10px 100px 20px;
+            }
+            #title {
+                grid-column: 2;
+                grid-row: 2;
+            }
+            #text {
+                grid-column: 4;
+                grid-row: 2;
+            }
+            #main {
+                grid-column: 2 / span 3;
+                grid-row: 4;
+            }
+            #photos {
+                grid-column: 2 /span 3;
+                grid-row: 6;
+            }
+            #image-title {
+                line-height: 1.5em;
+                font-size: 2em;
+            }
+            #text {
+                font-size: 1em;
+                padding: 10px;
+            }
+            #description {
+                font-size: 1.2em;
+                line-height: 1.1em;
+                margin-bottom: 10px;
+            }
+            #thumbnails {
+                max-height: 100px;
+            }
+            .thumbnail {
+                max-height: 80px;
+                margin: 10px 10px 5px 10px;
+            }
+	    #question {
+  		
+   		display:-webkit-flex;
+	    }
+        }
+        .vcenter {
+            display: -webkit-box !important;
+            display: box !important;
+            -webkit-box-orient: vertical;
+            box-orient: vertical;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-box-pack: center;
+            box-pack: center;
+            height: 100%;
+            width: 100%;
+        }
+        #image {
+            max-width: 90%;
+            max-height: 90%;
+            padding: 5px;
+            border: 15px solid white;
+        }
+        #photos {
+            background-color: #CCC;
+            box-shadow: 5px 5px 3px #666;
+            border-radius: 5px;
+        }
+        #thumbnails {
+            overflow: hidden;
+            text-align: center;
+        }
+        .thumbnail {
+            box-shadow: 5px 5px 3px #CCC;
+            border-radius: 3px;
+            border: 1px solid #111;
+        }
+        .thumbnail:hover {
+            border: 1px solid white;
+        }
+        #image-title {
+            font-family: Impact, fantasy;
+            text-align: center;
+        }
+        #text {
+            font-family: Verdana, sans-serif;
+            color: #000;
+            background-color: #CCC;
+            box-shadow: 5px 5px 3px #666;
+            border-radius: 5px;
+        }
+        a {
+            color: #633;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        var images = {
+            "8755627802": {
+                "title": "Umbrella",
+                "description": "Umbrella in SS 2017.",
+                "img": "img/umbrella.jpg"
+            },
+            "8899898917": {
+                "title": "Wallet",
+                "description": "Wallet on BA second floor.",
+                "img": "img/wallet.jpg"
+            },
+            "9045535798": {
+                "title": "Macbook",
+                "description": "Macbook in LM 1071",
+                "img": "img/macbook.jpg"
+            },
+            "9281765203": {
+                "title": "Pencil Case",
+                "description": "Pencil Case on Robarts 12th floor",
+                "img": "img/pencilcase.jpg"
+            },
+            "9476752141": {
+                "title": "Notebook",
+                "description": "Notebook in GB 2210",
+                "img": "img/notebook.jpg"
+            },
+            "10139131563": {
+                "title": "Water Bottle",
+                "description": "Water Bottle on Gerstein B1.",
+                "img": "img/waterbottle.jpg"
+            },
+            "10138806215": {
+                "title": "Kinkakuji",
+                "description": "Kinkakuji, Kyoto. Japan.",
+                "img": "http://farm8.staticflickr.com/7365/10138806215_e25e389de3_b.jpg"
+            }
+        };
+        function loadImage(id) {
+            document.getElementById("image").src = images[id].img;
+            document.getElementById("image-title").innerHTML = images[id].title;
+            document.getElementById("description").innerHTML = images[id].description;
+        }
+ 	function checkAnswer() {
+            document.getElementById("q1").value = document.getElementById("q1").value +"!!"
+            document.getElementById("q2").value = document.getElementById("q1").value + " !!"
+            document.getElementById("q3").value = document.getElementById("q1").value + "!!"
+        }
+    </script>
+</head>
+<body onload="loadImage(8899898917)";>
+    <div id="resultPage">
+        <div id="title">
+            <h1 id="image-title"></h1>
+        </div>
+        <div id="text">
+            <p id="description"></p>
+            <p>Found By <a id="founder">Mr Kan</a>.</p>
+        </div>
+        <div id="main" class="vcenter">
+            <img id="image" src="img/8899898917.jpg">
+	    <form id = "question" action="/action_page.php">
+  		<fieldset>
+    			<legend>Sercurity Question:</legend>
+   			 What colour is it?:<br>
+  			  <input id = "q1" type="text" name="q1" ><br>
+   			 Where did you lost it:<br>
+   			  <input id = "q2" type="text" name="q2" ><br>
+			 What browser it is using:<br>
+   			  <input id = "q3" type="text" name="q3" ><br><br>
+   			 <a href="#" onclick = "checkAnswer()" id="validate"  class="myButton">It's Mine!</a>
+            		 <a href="#" id="home" class="myButton">Home Page</a>
+ 		 </fieldset>
+	    </form> 
+        </div>
+        <div id="photos">
+            <div id="thumbnails">
+                <template id="resultItem">
+                    <a href="#" onclick="">
+                        <img id="thumb1" class="thumbnail" src="">
+                    </a>
+                </template>
+                <a href="#" onclick="loadImage(8755627802);"><img id="thumb1" class="thumbnail" src="img/umbrella.jpg"></a>
+                <a href="#" onclick="loadImage(8899898917);"><img id="thumb2" class="thumbnail" src="img/wallet.jpg"></a>
+                <a href="#" onclick="loadImage(9045535798);"><img id="thumb3" class="thumbnail" src="img/macbook.jpg"></a>
+                <a href="#" onclick="loadImage(9281765203);"><img id="thumb4" class="thumbnail" src="img/pencilcase.jpg"></a>
+                <a href="#" onclick="loadImage(9476752141);"><img id="thumb5" class="thumbnail" src="img/notebook.jpg"></a>
+                <a href="#" onclick="loadImage(10139131563);"><img id="thumb6" class="thumbnail" src="img/waterbottle.jpg"></a>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    document.getElementById("home").onclick = function () {
+        location.href = "profile.html";
+    };
+   </script>
+</html>

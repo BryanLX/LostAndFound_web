@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<script type="text/javascript">
+  var current = 0;
+  function loadQuestion(id) {
+          document.getElementById("question").innerHTML = "";
+    for(i = 0; i< jdata[id].questions.length;i++ ){
+          document.getElementById("question").innerHTML += jdata[id].questions[i].question + "<br> <input id = 'q" +i+"' type='text' name='q' ><br>";
+          }
+    current = id;
+  }
+  function checkAnswer() {
+    var tf = true;
+
+    for(i = 0; i < jdata[current].questions.length;i++){
+        if(document.getElementById('q' + i).value != jdata[current].questions[i].answer ){
+               tf = false;
+                }
+     }
+  if(tf){
+    document.getElementById("image").src = jdata[current].img;
+    document.getElementById("contact").innerHTML += "Please contact <br>" +jdata[current].contact;
+    document.getElementById("contact").innerHTML += "      "+jdata[current].contact + "<br>";
+  }else{
+    alert("The answer you entered is not correct.");
+  }
+      }
+</script>
+<script type="text/javascript">
+    var jdata = {{ result | safe }};
+  //       results: [
+  //   	   {
+  //               name: "Wallet",
+  //               questions:[
+  //                   {
+  //                       question: "Enter 1",
+  //                       answer: "1"
+  //                   },
+  //                   {
+  //                       question: "Enter 2 ?",
+  //                       answer: "2"
+  //                   },
+  //                   {
+  //                       question: "Enter 3 ?",
+  //                       answer: "3"
+  //                   }
+  //               ]
+  //           },
+	 //        {
+  //               name:"Bag",
+  //               questions:[
+  //                   {
+  //                       question: "How are you?",
+  //                       answer:"I am fine"
+  //                   },
+  //                   {
+  //                       question: "Are you ok?",
+  //                       answer:"I am fine"
+  //                   }
+  //               ]
+  //           }
+		// ]
+  //   };
+    function loadResult(){
+
+    	for(i = 0;i<jdata.length;i++){
+        var text = '<a href="#" onclick = "loadQuestion('
+        text += i;
+        text += ')" > ';
+        text += jdata[i].name;
+        text += "</a> <br> ";
+          document.getElementById("result").innerHTML += text;
+        }
+
+    }
+   </script>
+
+<head>
+<title>Search result page</title>
+<meta charset="iso-8859-1">
+<link rel="stylesheet" href="js/layout.css" type="text/css">
+<!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+</head>
+<body background="img/01.jpg">
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <h1></h1>
+  </header>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper row2">
+  <div id="container" class="clear">
+    <div id = "col1">
+      <h2>Search Result:</h2>
+      <div id="result">
+
+      </div>
+    </div>
+    <div id = "col2">
+      <h2>Item picture:</h2> <br>
+      <img id="image" src="img/question.jpg" align="middle"> <br>
+      <h2>Security Question:</h2>
+      <div id="question">
+        <fieldset id = "question">
+     			 Please select the item found on the right.<br>
+   		 </fieldset>
+       <a href="#" onclick = "checkAnswer();" id="validate"  class="myButton">It's Mine!</a>
+       <a href="/" id="home" class="myButton">Home Page</a>
+
+      </div>
+    </div>
+    <div id = "col3">
+      <h2>Found by:</h2>
+      <div id = "contact">
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper row3">
+  <footer id="footer" class="clear">
+    <h2></h2>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+1. goal: google map (ken)
+	(1) google map api on web page:
+		a. display map interface on web page (3.20)
+		b. design result display page (3.19) (ken finished and merged at 3.19)
+		c. design result item template (3.19) (ken finshed and merged at 3.19)
+		d. pass location to client side js (3.22)
+2. search: (shang)
+	(1) submit onclick: call backend endpont: (3.20)
+		method: post 
+		data: {
+			location: [Number],
+			name: string,
+			color: string
+		}
+		endpoint: "/item/search"
+		output: [{
+			username: string,
+			email: string,
+			location: [Number],
+			questions: [{
+				question: string,
+				answer: string
+			}],
+			img: String
+		}]
+		design callback: console.log()
+	(2) switch to result page: "result.html" (3.22)
+		display result in <div> id = "resultPage"
+		result content: logi/latitute, name, color
+		name: byranData as the obj
+
+3. security question: (bryan)
+	(1) design security question api interface in result.html that user could enter their answer in the blank field.(3.20)
+	(2) validata answer that provided by users, if the answer is correct, display username, contact information (3.22)
+
+4. upload: (song)
+	(1) submit onclick: call backend endpont: (3.22)
+		method: post 
+		data: {
+			location: [Number], // format will be [longitude, latitude]
+			name: string,
+			color: string,
+			questions: [{
+				question: string,
+				answer: string
+			}],
+			email: string,
+			img (url): String
+		}
+		endpoint: "/item/upload"
+		output: nothing
+		status: "success"/"error"
+	(2) design img upload procedure (3.21)
+4. login/logout:
+	(1) method post (shang 3.20)
+		data: {
+			email: string,
+			password: string
+		}
+		output: username if exist,
+		"0" if username does not exist, "1" if password incorrect
+		endpoint: "/user/login"
+	(2) change web page to have logout, display username (byran 3.22) 
+	(3) able to logout
+5. signup: (song)
+	(1) method post (3.21)
+		data: {
+			username: string,
+			password: string,
+			email: string
+		}
+		endpoint: "user/signup"
+	(2) switch to profile page (3.21)
+6. serial code: (bryan)
+	(1) method post 
+		data: {
+			email: string 
+		}
+		output: {code: string}
+		endpoint: "/user/serial"
+	(2) display serial code for users that require it 
+7. database: 
+	(1) mock database (3.19)
+	(2) all endpoint back endcode (3.22)

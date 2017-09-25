@@ -1,0 +1,497 @@
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>L&F profile</title>
+    <meta name="description" content="Your Description Here">
+    <meta name="keywords" content="bootstrap themes, portfolio, responsive theme">
+    <meta name="author" content="ThemeForces.Com">
+
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="Pcss/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="Pfonts/font-awesome/css/font-awesome.css">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="Pcss/style.css">
+    <link rel="stylesheet" type="text/css" href="Pcss/responsive.css">
+
+    <script type="text/javascript" src="Pjs/modernizr.custom.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="tf-home">
+        <div class="overlay">
+            <div id="sticky-anchor"></div>
+            <nav id="tf-menu" class="navbar navbar-default">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand logo" href="profile.html">Welcome!</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#tf-home">Home</a></li>
+                        <li><a href="#tf-portfolio">My posts</a></li>
+                        <li><a href="#tf-about">Serial Code</a></li>
+                        <li><a href="/signout">Sign Out</a></li>
+                      </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+            <div class="container">
+                <div class="content">
+                    <h1>L & F</h1>
+                    {% if session.username %}
+                    <h3>Welcome back {{ session.username }}!</h1>
+                    {% endif %}
+                    {% if msg %}
+                    <h3 style="color:orange"><strong> {{ msg }} </strong></h3>
+                    {% else %}
+                    <h3> A New Lost and Found Experience </h3>
+                    {% endif %}
+                    <br>
+                    <a href="#generate" class="btn btn-primary my-btn">LOST</a>
+                    <a href="#foundhook" class="btn btn-primary my-btn2">FOUND</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tf-service">
+        <div class="container">
+
+            <div class="col-md-4">
+
+                <div class="media">
+                  <div class="media-left media-middle">
+                    <i class="fa fa-motorcycle"></i>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">Simple</h4>
+                    <p>We do our best to simplify the whole process. Simplicity is what we believe a good application should have!</p>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="media">
+                  <div class="media-left media-middle">
+                    <i class="fa fa-gears"></i>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">Fast</h4>
+                    <p>Our automatching system saves you a lot of time to browse through all posts to find your own lost items. Provide information and let us do the job for you!</p>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="media">
+                  <div class="media-left media-middle">
+                    <i class="fa fa-heartbeat"></i>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">Secure</h4>
+                    <p>Our special serial code system would secure your lost items. No one else can claim your items ever!</p>
+                  </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="tf-portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h3>The Items I Found</h3>
+                <hr>
+            </div>
+
+            <div class="space"></div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="img/09.jpg" class="img-responsive">
+                </div>
+
+                <div class="col-md-4">
+                    <img src="img/02.jpg" class="img-responsive">
+                </div>
+
+                <div class="col-md-4">
+                    <img src="img/03.jpg" class="img-responsive">
+                </div>
+            </div>
+
+            <div class="row toppadding">
+                <div class="col-md-4">
+                    <img src="img/04.jpg" class="img-responsive">
+                </div>
+
+                <div class="col-md-4">
+                    <img src="img/05.jpg" class="img-responsive">
+                </div>
+
+                <div class="col-md-4">
+                    <img src="img/06.jpg" class="img-responsive">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="tf-about">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-6">
+                        <h3>Claim your own serial code</h3>
+                        <br>
+                        <p>Create your unique ID right now. Secure all your belongings!</p>
+                        <br>
+                        <a href="#tf-why-me" class="btn btn-primary my-btn dark">Generate My Serial Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tf-why-me">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Why Do I Need a Serial Code</h3>
+                        <br>
+                        <ul class="list-inline why-me">
+                            <li>
+                                <h4>Secure your belongings</h4>
+                                <p>Only the person with correct serial code can claim corresponding lost items. In this way, no one can claim anyone else's items.</p>
+                            </li>
+
+                        </ul>
+                        <div class="form-group">
+                        {% if serial %}
+                        <h3> {{ serial }} </h3>
+                        {% else %}
+                        <h3> Generate your serial code here!</h3>
+                        {% endif %}
+                      </div>
+                        <a id="generate" href="/serial" class="btn btn-primary my-btn dark">Generate</a>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tf-contact">
+        <div class="container">
+            <div class="section-title">
+                <h3 id="lostheader">Lost Item</h3>
+                <p>Come find what you lost</p>
+                <hr>
+            </div>
+
+            <div class="space"></div>
+            <div id="floating-panel">
+              <input onclick="clearMarkers1();" type=button value="Hide Markers">
+              <input onclick="showMarkers1();" type=button value="Show All Markers">
+              <input onclick="deleteMarkers1();" type=button value="Delete Markers">
+              <input onclick="setLocation1();" type=button value="Set Lost Location">
+            </div>
+            <div id="map1"></div>
+            <div class="space"></div>
+            <div class="form-box">
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <form id="contact" method="post" action="/search">
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="name" id="searchname" placeholder="Item Name: Wallet, Phone, Passport ...">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="location" id="searchlocation" placeholder="Location: Where did you lost this item? Leave blank if no idea">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="color" id="searchcolor" placeholder="Color: What is the color of your lost item? Leave blank if inapplicable">
+                      </div>
+                      <button type="submit" id="foundhook" class="btn btn-primary my-btn dark" href>Search</button>
+                    </form>
+                    <ul id="myresult"></ul>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+     <div id="tf-contact">
+        <div class="container">
+            <div class="section-title">
+                <h3 id="foundheader">Found Item</h3>
+                <p>Come post what you found</p>
+                <hr>
+            </div>
+            <div class="space"></div>
+            <div id="floating-panel1">
+              <input onclick="clearMarkers2();" type=button value="Hide Markers">
+              <input onclick="showMarkers2();" type=button value="Show All Markers">
+              <input onclick="deleteMarkers2();" type=button value="Delete Markers">
+              <input onclick="setLocation2();" type=button value="Set Found Location">
+            </div>
+            <div id="map2"></div>
+            <div class="space"></div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <form id="contact" action="/upload" method="post">
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="name" id="uploadName" placeholder="Item Name: Wallet, Phone, Passport ...">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="location" id="uploadLocation" placeholder="Location: Where did you find this item?">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="color" id="uploadColor" placeholder="Color: What is the color of your lost item? Leave blank if inapplicable">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="img" placeholder="img link">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="questions[0]" placeholder="First security question">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="answer[0]" placeholder="Answer">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="questions[1]" placeholder="Second security question">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="answer[1]" placeholder="Answer">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="questions[2]" placeholder="Third security question">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="answer[2]" placeholder="Answer">
+                      </div>
+<!--                       <div class="form-group">
+			<form method="post" enctype="multipart/form-data">
+						<input type="file" accept='image/*' name="myimage" onchange='openFile(event)' />
+						            <input type="text" class="form-control" name="img" id="uploadImage" placeholder="Image: Please upload your item's image">
+  						<image id="output">
+  						<script>
+  							var openFile = function(event) {
+  							var input = event.target;
+
+  							var reader = new FileReader();
+  							reader.onload = function(){
+  							var dataURL = reader.result;
+  							var output = document.getElementById('output');
+  							output.src = dataURL;
+  							var ImageURL = document.getElementById('uploadImage');
+  							ImageURL.value = dataURL;
+  							};
+  							reader.readAsDataURL(input.files[0]);
+  							
+  						};
+  						</script>
+                      </div> -->
+
+ <!--                      <div class="form-group">
+                        <textarea class="form-control" rows="4" placeholder="The detailed description about your found item ..."></textarea>
+                      </div>
+		      <div class="form-group">
+                        <input type="email" class="form-control" id="exampleQ1" placeholder="First security question: ...">
+                      </div>
+		      <div class="form-group">
+                        <input type="email" class="form-control" id="exampleA1" placeholder="Answer for q1:  ...">
+                      </div>
+		      <div class="form-group">
+                        <input type="email" class="form-control" id="exampleQ1" placeholder="Second security question: ...">
+                      </div>
+		      <div class="form-group">
+                        <input type="email" class="form-control" id="exampleA1" placeholder="Answer for q1:  ...">
+                      </div>
+		      <div class="form-group">
+                        <input type="email" class="form-control" id="exampleQ1" placeholder="Third security question: ...">
+                      </div>
+		      <div class="form-group">
+                        <input type="email" class="form-control" id="exampleA1" placeholder="Answer for q2:  ...">
+                      </div>
+		      <div class="form-group">
+                        <input type="email" class="form-control" id="exampleQ1" placeholder="Fourth security question: ...">
+                      </div>
+		      <div class="form-group">
+                        <input type="email" class="form-control" id="exampleA1" placeholder="Answer for q3:  ...">
+                      </div> -->
+
+                      <button id = "Upload" type="submit" class="btn btn-primary my-btn dark">Upload</button>
+          </form>
+                </div>
+            </div>
+        </div>
+    </div>
+     <script src="Pjs/gmaps.js"></script>
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script>
+      var map1;
+      var map2;
+      var markers1 = [];
+      var markers2 = [];
+
+      function initMap() {
+        var UofT = {lat: 43.662549, lng: -79.3937336};
+
+        map1 = new google.maps.Map(document.getElementById('map1'), {
+          zoom: 15,
+          center: UofT,
+          mapTypeId: 'roadmap'
+        });
+        map2 = new google.maps.Map(document.getElementById('map2'), {
+          zoom: 15,
+          center: UofT,
+          mapTypeId: 'roadmap'
+        });
+
+        // This event listener will call addMarker() when the map is clicked.
+        map1.addListener('click', function(event) {
+          addMarker1(event.latLng);
+        });
+        map2.addListener('click', function(event) {
+          addMarker2(event.latLng);
+        });
+      }
+
+      // Adds a marker to the map and push to the array.
+      function addMarker1(location) {
+        var marker1 = new google.maps.Marker({
+          position: location,
+          map: map1,
+          draggable: true,
+          animation: google.maps.Animation.DROP
+        });
+        markers1.push(marker1);
+      }
+      function addMarker2(location) {
+        var marker2 = new google.maps.Marker({
+          position: location,
+          map: map2,
+          draggable: true,
+          animation: google.maps.Animation.DROP
+        });
+        markers2.push(marker2);
+      }
+
+      // Sets the map on all markers in the array.
+      function setMapOnAll1(map) {
+        for (var i = 0; i < markers1.length; i++) {
+          markers1[i].setMap(map);
+        }
+      }
+      function setMapOnAll2(map) {
+        for (var i = 0; i < markers2.length; i++) {
+          markers2[i].setMap(map);
+        }
+      }
+
+
+      // Removes the markers from the map, but keeps them in the array.
+      function clearMarkers1() {
+        setMapOnAll1(null);
+      }
+       function clearMarkers2() {
+        setMapOnAll2(null);
+      }
+
+      // Shows any markers currently in the array.
+      function showMarkers1() {
+        setMapOnAll1(map1);
+      }
+      function showMarkers2() {
+        setMapOnAll2(map2);
+      }
+      // Deletes all markers in the array by removing references to them.
+      function deleteMarkers1() {
+        clearMarkers1();
+        markers1 = [];
+      }
+      function deleteMarkers2() {
+        clearMarkers2();
+        markers2 = [];
+      }
+
+      //Set location at current marker.
+      function setLocation1(){
+        var lat = markers1[0].getPosition().lat();
+        var lng = markers1[0].getPosition().lng(); 
+        document.getElementById('searchlocation').value = "[" + lat + "," + lng + "]";
+        alert("Set lost location to latitude: " + lat + ", longtitude: " + lng);
+      }
+      function setLocation2(){
+        var lat = markers2[0].getPosition().lat();
+        var lng = markers2[0].getPosition().lng(); 
+        document.getElementById('uploadLocation').value = "[" + lat + "," + lng + "]";
+        alert("Set found location to latitude: " + lat + ", longtitude: " + lng);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz-bu3_s7E2U0GnK3hpWql5I5yPnckzUs&callback=initMap">
+    </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+  <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="js/jquery-migrate-1.2.1.min.js"></script>
+   <script src="js/plugins.js"></script>
+   <script src="js/main.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="Pjs/jquery.1.11.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="Pjs/bootstrap.js"></script>
+
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="Pjs/main.js"></script>
+
+    <!-- shan search -->
+    <script type="text/javascript" src="search/item.js"></script>
+
+  </body>
+</html>
+{% endblock %}
